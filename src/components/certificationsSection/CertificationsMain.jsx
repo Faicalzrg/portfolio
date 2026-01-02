@@ -14,12 +14,14 @@ const professionalCertifications = [
     description: "Intensive technical training on cutting-edge BookMaster One systems, focused on high-level industrial maintenance."
   },
   {
-    name: "Complex Identification Systems & Document Security",
+    // ✅ Titre mis à jour selon votre choix
+    name: "SC-11 Machine: Maintenance & Operational Excellence",
     year: "Bauer + Mück GmbH • Berlin, Germany (Jan 2025)",
     align: "left",
     image: "/portfolio/images/certifications/bauer-mueck-berlin.png",
     link: "https://www.linkedin.com/posts/activity-7394319275844399104-nk4W",
-    description: "Deep dive into secure ID management and advanced industrial identification systems through professional immersion in Berlin."
+    // 💡 Description ajustée pour plus d'impact
+    description: "Technical expertise in the maintenance and operation of SC-11 systems, focused on maximizing equipment reliability and industrial performance."
   }
 ];
 
