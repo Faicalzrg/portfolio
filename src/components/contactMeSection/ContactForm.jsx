@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser"; // Assurez-vous d'avoir fait : npm install @emailjs/browser
+import emailjs from "@emailjs/browser"; 
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
   
   const form = useRef();
 
@@ -14,37 +14,43 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_fizxf9a",   // Votre Service ID
-        "template_tf1qmz8",  // Votre Template ID
+        "service_q3ra8ob",   // Ton nouveau Service ID
+        "template_xd0ft66",  // Ton nouveau Template ID
         form.current, 
         {
-          publicKey: "JUBeoamG4zFvx2cBm", // ✅ Votre Public Key est intégrée ici
+          publicKey: "JUBeoamG4zFvx2cBm", // Ta Public Key
         }
       )
       .then(
         () => {
-          setSuccess("Message Sent Successfully!");
+          setStatusMessage("Message Sent Successfully!");
           setName("");
           setEmail("");
           setMessage("");
           e.target.reset(); // Réinitialise le formulaire
+          // Efface le message de succès après 5 secondes
+          setTimeout(() => setStatusMessage(""), 5000);
         },
         (error) => {
           console.log("FAILED...", error.text);
-          setSuccess("Failed to send message. Please try again.");
+          setStatusMessage("Failed to send message. Please try again.");
         }
       );
   };
 
   return (
     <div className="w-full">
-      {/* Affichage du message de confirmation */}
-      {success && <p className="text-cyan mb-4 font-bold">{success}</p>}
+      {/* Affichage du message de confirmation ou d'erreur */}
+      {statusMessage && (
+        <p className={`mb-4 font-bold ${statusMessage.includes("Successfully") ? "text-cyan" : "text-orange"}`}>
+          {statusMessage}
+        </p>
+      )}
       
       <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
         <input
           type="text"
-          name="from_name" // Doit correspondre à {{from_name}} dans votre template EmailJS
+          name="from_name" // {{from_name}} dans ton template EmailJS
           placeholder="Your Name"
           required
           className="h-12 rounded-lg bg-lightBrown px-4 text-white outline-none border border-transparent focus:border-cyan transition-all"
@@ -53,7 +59,7 @@ const ContactForm = () => {
         />
         <input
           type="email"
-          name="from_email" // Doit correspondre à {{from_email}} dans votre template EmailJS
+          name="from_email" // {{from_email}} dans ton template EmailJS
           placeholder="Your Email"
           required
           className="h-12 rounded-lg bg-lightBrown px-4 text-white outline-none border border-transparent focus:border-cyan transition-all"
@@ -61,7 +67,7 @@ const ContactForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <textarea
-          name="message" // Doit correspondre à {{message}} dans votre template EmailJS
+          name="message" // {{message}} dans ton template EmailJS
           rows="6"
           placeholder="Message"
           required
