@@ -30,7 +30,7 @@ const HeroText = () => {
         viewport={{ once: false, amount: 0 }}
         className="text-lg mt-4"
       >
-        specialized in Maintenance, Asset Management & Lean practicesx <br /> 
+        specialized in Maintenance, Asset Management & Lean practices <br /> 
         with expertise in optimizing production processes <br /> 
         and leading improvement projects
       </motion.p>

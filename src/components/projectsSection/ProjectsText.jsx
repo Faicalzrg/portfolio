@@ -10,7 +10,9 @@ const ProjectsText = () => {
         in asset reliability and Lean transformation. 
         <br /><br />
         By integrating <span className="text-cyan-400 font-semibold">PMBOK® methodologies</span> for rigorous project management and adopting <span className="text-cyan-400 font-semibold">Industry 5.0</span> principles, I focus on the synergy between human creativity and smart systems. 
-        From <span className="italic">BIM and Power BI</span> to advanced risk modeling, my work is dedicated to building resilient, human-centric, and sustainable industrial futures[cite: 29].
+        From <span className="italic">BIM and Power BI</span> to advanced risk modeling, 
+        my work is dedicated to building resilient, human-centric, and sustainable industrial 
+        futures.
       </p>
     </div>
   );
